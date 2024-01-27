@@ -18,7 +18,7 @@ const config = {
         create: create,
         update: update
     },
-    backgroundColor: '#000' // Set a background color (black in this case)
+    backgroundColor: '#000'
 };
 
 const game = new Phaser.Game(config);
@@ -28,10 +28,10 @@ let score = 0;
 let scoreText;
 
 function preload() {
-    this.load.image('sky', 'http://192.168.0.110:8080/sky.png');
-    this.load.image('basket', 'http://192.168.0.110:8080/basket.png');
-    this.load.image('apple', 'http://192.168.0.110:8080/apple.png');
-    this.load.image('bomb', 'http://192.168.0.110:8080/bomb.png');
+    this.load.image('sky', 'sky.png');
+    this.load.image('basket', 'basket.png');
+    this.load.image('apple', 'apple.png');
+    this.load.image('bomb', 'bomb.png');
 }
 
 function create() {
@@ -76,7 +76,7 @@ function update() {
 function createFallingObject(objectType) {
     const x = Phaser.Math.Between(50, config.width - 50);
     const y = Phaser.Math.Between(0, 100);
-    
+
     const fallingObject = fallingObjects.create(x, y, objectType);
     fallingObject.setScale(0.05).setOrigin(0.5);
     fallingObject.setVelocityY(Phaser.Math.Between(100, 200));
